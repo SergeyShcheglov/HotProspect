@@ -6,44 +6,35 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
-    @State private var backgroundColor = Color.red
+    
     
     var body: some View {
-        List {
-        Text("Hello, world")
-            .padding()
-            .background(backgroundColor)
-            .swipeActions {
-                Button {
-                    print("hi")
-                } label: {
-                    Label("Send message", systemImage: "message")
-                }
-                Button {
-                    print("hello")
-                } label: {
-                    Label("move to trash", systemImage: "trash")
+        VStack {
+            Button("Request permission") {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                        print("success")
+                    } else if let error = error {
+                        print(error.localizedDescription)
+                    }
                 }
             }
-        
-            Text("Change color")
-                .padding()
-                .contextMenu {
-                    Button(role: .destructive) {
-                        backgroundColor = .red
-                    } label: {
-                        Label("Red", systemImage: "checkmark.circle.fill")
-                    }
-                    Button("Blue") {
-                        backgroundColor = .blue
-                    }
-                    
-                    Button("Green") {
-                        backgroundColor = .green
-                    }
-                }
+            
+            Button("Schedule notifications") {
+                let content = UNMutableNotificationContent()
+                content.title = "Feed the dogs"
+                content.subtitle = "they look hungry"
+                content.sound = UNNotificationSound.default
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+                
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                
+                UNUserNotificationCenter.current().add(request)
+            }
         }
     }
 }
