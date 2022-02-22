@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var output = ""
+    @State private var backgroundColor = Color.red
     
     var body: some View {
-        Text(output)
-            .task {
-                await fetchReadings()
-            }
-    }
-    
-    func fetchReadings() async {
-        let fetchTask = Task { () -> String in
-            let urlString = URL(string: "https://hws.dev/readings.json")!
-            let (data, _) = try await URLSession.shared.data(from: urlString)
-            let readings = try JSONDecoder().decode([Double].self, from: data)
-            return "Found \(readings.count) readings."
-        }
+        VStack {
+        Text("Hello, world")
+            .padding()
+            .background(backgroundColor)
         
-        let result = await fetchTask.result
-        
-        switch result {
-        case .success(let str):
-            output = str
-        case .failure(let error):
-            output = "Download error"
+            Text("Change color")
+                .padding()
+                .contextMenu {
+                    Button(role: .destructive) {
+                        backgroundColor = .red
+                    } label: {
+                        Label("Red", systemImage: "checkmark.circle.fill")
+                    }
+                    Button("Blue") {
+                        backgroundColor = .blue
+                    }
+                    
+                    Button("Green") {
+                        backgroundColor = .green
+                    }
+                }
         }
     }
 }
