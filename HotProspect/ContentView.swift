@@ -11,10 +11,22 @@ struct ContentView: View {
     @State private var backgroundColor = Color.red
     
     var body: some View {
-        VStack {
+        List {
         Text("Hello, world")
             .padding()
             .background(backgroundColor)
+            .swipeActions {
+                Button {
+                    print("hi")
+                } label: {
+                    Label("Send message", systemImage: "message")
+                }
+                Button {
+                    print("hello")
+                } label: {
+                    Label("move to trash", systemImage: "trash")
+                }
+            }
         
             Text("Change color")
                 .padding()
