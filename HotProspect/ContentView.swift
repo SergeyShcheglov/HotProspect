@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            ProspectView(filter: .none)
+            ProspectView(filter: .none, isShowingBadge: true)
                 .tabItem {
                     Label("Everyone", systemImage: "person.3")
                 }
