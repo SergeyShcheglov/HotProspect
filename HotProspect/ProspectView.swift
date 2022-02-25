@@ -21,12 +21,15 @@ struct ProspectView: View {
     @State private var isShowingScanner = false
     @State private var isShowingSort = false
     
+    @State private var byName = false
+    @State private var byLastAdded = false
+    
     var isShowingBadge = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(filteredProspects) { prospect in
+                ForEach(someSorted) { prospect in
                     HStack {
                         if isShowingBadge {
                             if prospect.isContacted {
@@ -78,25 +81,31 @@ struct ProspectView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        isShowingSort = true
+                    Menu {
+                        Button {
+                            byName = true
+                            byLastAdded = false
+                        } label: {
+                                Label("by Name", systemImage: (byName ? "checkmark" : ""))
+                        }
+                        
+                        Button {
+                            byName = false
+                            byLastAdded = true
+                        } label: {
+                            Label("by lastAdded", systemImage: (byLastAdded ? "checkmark" : ""))
+                        }
+                        
                     } label: {
                         Label("Sort", systemImage: "arrow.up.arrow.down")
+                            .labelStyle(.titleAndIcon)
                     }
+                    
                 }
             }
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Sergey Shcheglov\n97shcheglov@gmail.com", completion: handleScan)
             }
-            //            .confirmationDialog("Sorting", isPresented: $isShowingSort) {
-            //                Button("by Name") {
-            //                    //
-            //                }
-            //                Button("by Last Added") {
-            //                    //
-            //                }
-            //            }
-            
         }
     }
     
@@ -122,6 +131,18 @@ struct ProspectView: View {
         }
     }
     
+    var someSorted: [Prospect] {
+        if byName {
+            return filteredProspects.sorted { $0.name.caseInsensitiveCompare($1.name) == .orderedAscending}
+        }
+        
+        if byLastAdded {
+            return filteredProspects.sorted { $1.dateAdded < $0.dateAdded }
+        }
+        
+        return filteredProspects
+    }
+    
     func handleScan(result: Result<ScanResult, ScanError>) {
         isShowingScanner = false
         
@@ -133,6 +154,7 @@ struct ProspectView: View {
             let person = Prospect()
             person.name = details[0]
             person.emailAddress = details[1]
+//            person.dateAdded = Date.now
             prospects.add(person)
         case .failure(let error):
             print("Scanning error: \(error.localizedDescription)")
