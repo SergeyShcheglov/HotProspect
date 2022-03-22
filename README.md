@@ -5,14 +5,14 @@ Great choice for conference
 
 
 <div align = "center">
-        <img src="https://github.com/sergeyshcheglov/hotprospect/readme%20assets/hotprospect.gif" width = "187">
+        <img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/hotprospect.gif" width = "187">
 
 </div>
 <div>
-<img src="https://github.com/sergeyshcheglov/hotprospect/readme%20assets/EveryoneView_HotProspect.jpeg" width = "187">
-<img src="https://github.com/sergeyshcheglov/hotprospect/readme%20assets/Contacted_HotProspect.jpeg" width = "187">
-<img src="https://github.com/sergeyshcheglov/hotprospect/readme%20assets/UncontactedPerson_HotProspect.jpeg" width = "187">
-<img src="https://github.com/sergeyshcheglov/hotprospect/readme%20assets/YourQrCode_HotProspect.jpeg" width = "187">
+<img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/EveryoneView_HotProspect.jpeg" width = "187">
+<img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/Contacted_HotProspect.jpeg" width = "187">
+<img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/UncontactedPerson_HotProspect.jpeg" width = "187">
+<img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/YourQrCode_HotProspect.jpeg" width = "187">
 </div>
 
 
