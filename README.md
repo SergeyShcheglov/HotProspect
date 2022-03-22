@@ -5,7 +5,7 @@ Great choice for conference
 
 
 <div align = "center">
-        <img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/hotprospect.gif" width = "187">
+        <img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/HotProspect.gif" width = "187">
 
 </div>
 <div>
