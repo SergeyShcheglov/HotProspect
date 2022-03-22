@@ -3,6 +3,15 @@
 The app to create fast QR-code and share it easily
 Great choice for conference
 
+## Tech Details:
+1. Frameworks: 
+- SwiftUI
+- CoreImage
+- UserNotification
+
+2. Used **Swift Package Manager** to add CodeScanner
+
+3. All data stores in **Document directory**
 
 <div align = "center">
         <img src="https://github.com/SergeyShcheglov/HotProspect/blob/main/README%20assets/HotProspect.gif" width = "187">
@@ -16,12 +25,4 @@ Great choice for conference
 </div>
 
 
-## Tech Details:
-1. Frameworks: 
-- SwiftUI
-- CoreImage
-- UserNotification
 
-2. Used Swift Package Manager to add CodeScanner
-
-3. All data stores in Document directory
