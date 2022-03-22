@@ -1,7 +1,7 @@
 # HotProspect
 
-The app to create fast QR-code and share it easily. \n
-A great choice for conference
+<p> The app to create fast QR-code and share it easily. </br>
+A great choice for conference </p>
 
 
 <div>
