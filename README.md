@@ -1,10 +1,10 @@
 # HotProspect
 
 The app to create fast QR-code and share it easily
-Great choice for conference
+A great choice for conference
 
 ## Tech Details:
-1. Frameworks: 
+1. **Frameworks**: 
 - SwiftUI
 - CoreImage
 - UserNotification
